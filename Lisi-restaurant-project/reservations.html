@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<style>
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Afacad Flux';
+        }
+
+        body {
+            /*background styling if needed */
+        }
+
+        .kryesori-main {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.75),rgba(121, 114, 114, 0.75)),url(pexels-instasky-16251530.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
+
+
+        #kryesori {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            height: 80px;
+        }
+
+        nav a {
+            height: 100%;
+            padding: 0 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            font-weight: bolder;
+            opacity: 0.5;
+            transition: 0.4s;
+        }
+        nav a:not(:hover){
+            transition: 0.4s;
+            opacity: 1;
+        }
+        .sidebar {
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            
+        }
+
+        .sidebar {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background-color: black;
+                font-size: 30px;
+                color: black;
+        }
+        .menu-button{
+            display: none;
+        }
+        
+        
+
+        header img {
+            width: 150px;
+        }
+        .banner{
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding-bottom: 20px;
+        }
+        .card-container{
+            display: grid;
+            grid-template-columns: 480px 490px;
+
+        }
+        .card-img{
+            background: url(pexels-filip-sestrenek-195922998-11474211.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .banner h2{
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+        .card-content{
+            background: #fff;
+            height: 330px;
+
+        }
+        .card-content h3{
+            text-align: center;
+            color: #000;
+            padding: 25px 0 10px 0;
+            font-size: 36px;
+            font-weight: 500;
+
+        }
+        .form-row{
+            display: flex;
+            width: 90%;
+            margin: 0 auto;
+        }
+        form select,form input{
+            display: block;
+            width: 100%;
+            margin: 15px 12px;
+            padding: 5px;
+            font-size: 15px;
+            font-family: 'Afacad Flux';
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #eee;
+            font-weight: 300;
+
+        }
+        form input[type=text],form input[type= number],form input::placeholder,select
+        {
+            color: black;
+        }
+        form input[type=button]{
+            color: #fff;
+            background: #f2745f;
+            padding: 12px 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form input[type=button]:hover{
+            opacity: 0.7;
+            transition: 0.4s;
+        }
+        form input[type=button]:not(:hover){
+            opacity: 1;
+            transition: 0.4s;
+        }
+        @media(max-width:992px){
+            .kryesori-main{
+                background-image: linear-gradient(rgba(0,0,0,0.75),rgba(121, 114, 114, 0.75));
+                height: 150vh;
+            }
+            .card-container{
+                grid-template-columns: 100%;
+            }
+            .card-img{
+                height: 330px;
+            }
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header img {
+                width: 100px;
+                margin-bottom: 10px;
+            }
+
+            header nav a {
+                font-size: 1.5vh;
+                margin: 0 5px;
+            }
+
+            .kryesori2, .kryesori3, .dish-in {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .slides {
+                height: 50vh;
+            }
+
+            .h1 {
+                font-size: 4vh;
+            }
+
+            .menu-button {
+                display: flex;
+                
+                
+            }
+
+            .hideOnMobile {
+                display: none;
+            }
+           
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .h1 {
+                font-size: 3vh;
+            }
+
+            header img {
+                width: 80px;
+            }
+
+            .kryesori2 h1, .kryesori3 h1, .dishes h1 {
+                font-size: 3vh;
+            }
+
+            .container img, .dishes img {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .socialIcons a i {
+                font-size: 1.5em;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+            .star img{
+                width: 80px;
+            }
+        }
+</style>
+<body>
+    <div class="kryesori-main">
+
+        <div id="kryesori">
+            
+            <div class="header">
+                <nav>
+                    <ul class="sidebar">
+                        <li onclick="hideSidebar()" >
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+                        </li>
+                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="reservations.html">Reservations</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                    <ul class="headi1">
+                        <li id="img-ja"><a href="index1.html"><img src="lit-logo.png" alt="" width="105px"></a></li>
+                        <li class="hideOnMobile"><a href="index1.html">Home</a></li>
+                        <li class="hideOnMobile"><a href="menu.html">Menu</a></li>
+                        <li class="hideOnMobile"><a href="reservations.html">Reservations</a></li>
+                        <li class="hideOnMobile"><a href="contactus.html">Contact Us</a></li>
+                        <li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+    
+                    </ul>
+                </nav>
+            </div>
+            <section class="banner">
+                <h2>BOOK YOUR TABLE NOW</h2>
+                <div class="card-container">
+                    <div class="card-img">
+                        
+                    </div>
+                    <div class="card-content">
+                        <h3>Reservation</h3>
+                        <p id="paragrafi" style="color: red; text-align: center;"></p>
+
+                        
+                        <form action="" id="reservationForm"> 
+                            <div class="form-row">
+                                <select name="days" id="daySelect">
+                                    <option value="day-select">Select Day</option>
+                                    <option value="sunday">Sunday</option>
+                                    <option value="saturday">Saturday</option>
+                                    <option value="friday">Friday</option>
+                                    <option value="thursday">Thursday</option>
+                                    <option value="wednesday">Wednesday</option>
+                                    <option value="tuesday">Tuesday</option>
+                                    <option value="monday">Monday</option>
+                                </select>
+                        
+                                <select name="hours" id="hourSelect">
+                                    <option value="hour-select">Select Hour</option>
+                                    <option value="10">10:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="18">18:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="22">22:00</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="Full Name" id="emri">
+                                <input type="text" placeholder="Phone Number" id="numri">
+                            </div>
+                            <div class="form-row">
+                                <input type="number" placeholder="How many persons?" id="personat">
+                                <input type="button" value="BOOK TABLE" onclick="validateForm()">
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script>
+           function validateForm() {
+        // Merr elementet
+        const daySelect = document.getElementById('daySelect');
+        const hourSelect = document.getElementById('hourSelect');
+        const emri = document.getElementById('emri');
+        const numri = document.getElementById('numri');
+        const personat = document.getElementById('personat');
+        const paragrafi = document.getElementById('paragrafi');
+
+        // Reset message dhe borders
+        paragrafi.innerText = '';
+        let message = 'Please fill out the specifics\n';
+        let isValid = true;
+
+        // Kontroll për secilën fushë dhe përditësimi i gabimeve
+        if (daySelect.value === 'day-select') {
+            
+            daySelect.style.border = '2px solid red';
+            isValid = false;
+        } else {
+            daySelect.style.border = '1px solid green';
+        }
+
+        if (hourSelect.value === 'hour-select') {
+            
+            hourSelect.style.border = '2px solid red';
+            isValid = false;
+        } else {
+            hourSelect.style.border = '1px solid green';
+        }
+
+        if (emri.value.trim() === '') {
+            
+            emri.style.border = '2px solid red';
+            isValid = false;
+        } else {
+            emri.style.border = '1px solid green';
+        }
+
+        if (numri.value.trim() === '') {
+            
+            numri.style.border = '2px solid red';
+            isValid = false;
+        } else {
+            numri.style.border = '1px solid green';
+        }
+
+        if (personat.value.trim() === '' || personat.value <= 0) {
+            
+            personat.style.border = '2px solid red';
+            isValid = false;
+        } else {
+            personat.style.border = '1px solid green';
+        }
+
+        // Shfaq mesazhin për gabimet ose mesazhin e suksesit
+        if (!isValid) {
+            paragrafi.innerText = message;
+            paragrafi.style.color = 'red';
+        } else {
+            
+            paragrafi.innerText = 'Thanks for your reservation, we welcome you!';
+            paragrafi.style.color = 'green';
+        }
+    }
+    function showSidebar() {
+            document.querySelector('.sidebar').style.display = 'flex';
+        }
+    
+        function hideSidebar() {
+            document.querySelector('.sidebar').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
